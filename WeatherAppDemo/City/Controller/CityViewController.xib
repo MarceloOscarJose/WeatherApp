@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CityViewController" customModule="WeatherAppDemo" customModuleProvider="target">
+            <connections>
+                <outlet property="citySearchBar" destination="zUF-Ca-cRo" id="kXH-we-0zK"/>
+                <outlet property="cityTableView" destination="pJF-e8-RiX" id="zCp-Sd-0c1"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <searchBar contentMode="redraw" placeholder="Buscar ciudades por nombre" translatesAutoresizingMaskIntoConstraints="NO" id="zUF-Ca-cRo">
+                    <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pJF-e8-RiX">
+                    <rect key="frame" x="0.0" y="76" width="375" height="531"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5zM-Cy-3pB">
+                    <rect key="frame" x="5" y="612" width="365" height="50"/>
+                    <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Siguiente">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="saveCitySelection:" destination="-1" eventType="touchUpInside" id="HtM-bg-MFZ"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="pJF-e8-RiX" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="-60" id="9Tv-le-WlK"/>
+                <constraint firstItem="pJF-e8-RiX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="9UC-0o-USP"/>
+                <constraint firstItem="pJF-e8-RiX" firstAttribute="top" secondItem="zUF-Ca-cRo" secondAttribute="bottom" id="CXS-GZ-R00"/>
+                <constraint firstItem="5zM-Cy-3pB" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="-5" id="SEr-cn-gBi"/>
+                <constraint firstItem="5zM-Cy-3pB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="5" id="UZt-eD-Cla"/>
+                <constraint firstItem="pJF-e8-RiX" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="ZKp-1W-MDF"/>
+                <constraint firstItem="5zM-Cy-3pB" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-5" id="ZeP-un-VL7"/>
+                <constraint firstItem="zUF-Ca-cRo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ehs-4O-V7u"/>
+                <constraint firstItem="zUF-Ca-cRo" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="iXU-Gz-IGl"/>
+                <constraint firstItem="5zM-Cy-3pB" firstAttribute="top" secondItem="pJF-e8-RiX" secondAttribute="bottom" constant="5" id="nhi-Sd-zRP"/>
+                <constraint firstItem="zUF-Ca-cRo" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="v1p-Fy-6B9"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="132" y="138.98050974512745"/>
+        </view>
+    </objects>
+</document>
