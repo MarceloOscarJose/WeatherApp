@@ -18,33 +18,27 @@ class WeatherHeaderView: UIView {
     @IBOutlet weak var humidityLabel: UILabel!
     @IBOutlet weak var windSpeedLabel: UILabel!
     @IBOutlet weak var windDirectionLabel: UILabel!
-    @IBOutlet weak var weatherInfoStackView: UIStackView!
-
+    @IBOutlet weak var weatherInfoView: UIStackView!
+    
     var initialHeight: CGFloat!
-    var minHeight: CGFloat!
-
-    convenience init(minHeight: CGFloat) {
-        self.init(frame: .zero)
-        self.minHeight = minHeight
-    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupControls()
     }
 
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        setupControls()
     }
 
     override func layoutSubviews() {
         if self.initialHeight == nil {
             initialHeight = self.frame.height
+            setupControls()
         }
 
-        let alpha = (self.frame.height - minHeight) / (initialHeight - minHeight)
-        weatherInfoStackView.alpha = alpha
+        let topMargen = initialHeight - 100
+        let alpha = (self.frame.height - topMargen) / (initialHeight - topMargen)
+        weatherInfoView.alpha = alpha
     }
 
     func setupControls() {
@@ -53,12 +47,12 @@ class WeatherHeaderView: UIView {
         contentView.autoPinEdgesToSuperviewEdges()
     }
 
-    func updateData(cityname: String, description: String, image: String, temp: Int, humidity: Int, windSpeed: Int, windDirection: String) {
+    func updateData(cityname: String, description: String, image: String, temp: String, humidity: String, windSpeed: String, windDirection: String) {
         cityNameLabel.text = "\(cityname)\n\(description)"
         weatherIcon.image = UIImage(named: image)!
-        tempLabel.text = "\(temp)°"
-        humidityLabel.text = "\(humidity)%"
-        windSpeedLabel.text = "\(windSpeed) Km/h"
-        windDirectionLabel.text = "\(windDirection)"
+        tempLabel.text = temp
+        humidityLabel.text = humidity
+        windSpeedLabel.text = windSpeed
+        windDirectionLabel.text = windDirection
     }
 }

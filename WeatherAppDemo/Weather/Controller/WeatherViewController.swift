@@ -11,23 +11,18 @@ import PureLayout
 
 class WeatherViewController: UIViewController {
 
-    let KForecastCellId = "ForecastCell"
-    let KForecastClass = "ForecastCollectionViewCell"
+    let KForecastCellId = "ForecastCellTest"
+    let KForecastClass = "ForecastCollectionViewCellTest"
 
     // UI Vars
     let forecastCellPadding: CGFloat = 10.0
     let initialHeaderHeight: CGFloat = 300
     let minHeaderHeight: CGFloat = 180
 
-    let backgroundView: UIImageView = {
-        let backgroundView = UIImageView()
-        //backgroundView.image = UIImage(named: "Sun")
-        backgroundView.contentMode = .scaleAspectFill
-        return backgroundView
-    }()
+    let mainModel = MainModel()
 
     var containerView: PXStickyHeaderCollectionView!
-    let containerHeader: WeatherHeaderView = WeatherHeaderView(minHeight: 200)
+    let containerHeader: WeatherHeaderView = WeatherHeaderView()
 
     var forecastData: ForecastData!
 
@@ -45,12 +40,13 @@ class WeatherViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        getWeatherData()
+
+        if self.forecastData == nil {
+            getWeatherData()
+        }
     }
 
     func setupControls() {
-        self.view.addSubview(backgroundView)
-        backgroundView.autoPinEdgesToSuperviewEdges()
 
         self.view.backgroundColor = UIColor.primaryColor
         containerView = PXStickyHeaderCollectionView(initHeaderHeight: initialHeaderHeight, minHeaderHeight: minHeaderHeight, headerView: containerHeader)
@@ -66,7 +62,7 @@ class WeatherViewController: UIViewController {
     }
 
     func getWeatherData() {
-        let mainModel = MainModel()
+
         mainModel.getWeather(id: cityId, responseHandler: { (mainData) in
             self.containerHeader.updateData(cityname: mainData.weather.name, description: mainData.weather.mainDescription, image: mainData.weather.icon, temp: mainData.weather.temp, humidity: mainData.weather.humidity, windSpeed: mainData.weather.windSpeed, windDirection: mainData.weather.windDirection)
             self.forecastData = mainData.forecast

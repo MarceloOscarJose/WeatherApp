@@ -10,7 +10,7 @@ import UIKit
 
 class ForecastData: NSObject {
 
-    var list: [ForecastDataResult] = []
+    var list: [[ForecastDataResult]] = []
 
     var currentData: String = ""
 
@@ -19,12 +19,13 @@ class ForecastData: NSObject {
         let formatterShortDate = DateFormatter.shortDate
         let groupedForecast = Dictionary(grouping: forecast.list) { formatterShortDate.string(from: $0.dtTxt) }
 
-        for forecastData in forecast.list {
+        for forecastData in groupedForecast.values {
+            var forecastListdata: [ForecastDataResult] = []
 
-            var forecastListdata: ForecastDataResult = ForecastDataResult(forecast: forecastData)
-            //for forecastList in forecastData.value {
-                //forecastListdata.append()
-            //}
+            for forecast in forecastData {
+                forecastListdata.append(ForecastDataResult(forecast: forecast))
+            }
+
             list.append(forecastListdata)
         }
     }
@@ -41,6 +42,7 @@ class ForecastDataResult: NSObject {
     var windDirection: String
     var date: String
     var dayName: String
+    var hour: String
 
     init(forecast: ForecastList) {
         self.icon = forecast.weather.first?.icon ?? ""
@@ -51,10 +53,8 @@ class ForecastDataResult: NSObject {
         self.windSpeed = "\(Int(forecast.wind.speed.rounded())) Km/h"
         self.windDirection = "N"
 
-        let formatterLongDate = DateFormatter.longDate
-        self.date = formatterLongDate.string(from: forecast.dtTxt).capitalizedFirstLetter()
-
-        let formatterDayName = DateFormatter.dayName
-        self.dayName = formatterDayName.string(from: forecast.dtTxt).capitalizedFirstLetter()
+        self.date = DateFormatter.longDate.string(from: forecast.dtTxt).capitalizedFirstLetter()
+        self.dayName = DateFormatter.dayName.string(from: forecast.dtTxt).capitalizedFirstLetter()
+        self.hour = DateFormatter.hour.string(from: forecast.dtTxt).capitalizedFirstLetter()
     }
 }

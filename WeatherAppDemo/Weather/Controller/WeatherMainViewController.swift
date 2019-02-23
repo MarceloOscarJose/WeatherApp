@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  WeatherMainViewController.swift
 //  WeatherAppDemo
 //
 //  Created by Marcelo José on 19/02/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+class WeatherMainViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
 
     let cities: [Int] = CityModel.sharedInstance.getSelectedCities()
 

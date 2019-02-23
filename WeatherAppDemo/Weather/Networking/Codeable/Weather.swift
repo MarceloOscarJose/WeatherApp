@@ -13,7 +13,6 @@ struct Weather: Codable {
     var weather: [WeatherInfo]
     var main: WeatherMain
     var wind: WeatherWind
-    var clouds: WeatherClouds
 }
 
 struct WeatherMain: Codable {
@@ -44,10 +43,6 @@ struct WeatherInfo: Codable {
         case descrip = "description"
         case icon
     }
-}
-
-struct WeatherClouds: Codable {
-    var all: Int
 }
 
 struct WeatherWind: Codable {

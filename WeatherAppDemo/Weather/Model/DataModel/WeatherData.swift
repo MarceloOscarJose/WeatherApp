@@ -14,9 +14,9 @@ class WeatherData: NSObject {
     var icon: String
     var main: String
     var mainDescription: String
-    var temp: Int
-    var humidity: Int
-    var windSpeed: Int
+    var temp: String
+    var humidity: String
+    var windSpeed: String
     var windDirection: String
 
     init(weather: Weather) {
@@ -24,9 +24,9 @@ class WeatherData: NSObject {
         self.icon = weather.weather.first?.icon ?? ""
         self.main = weather.weather.first?.main ?? ""
         self.mainDescription = weather.weather.first?.descrip.capitalizedFirstLetter() ?? ""
-        self.temp = Int(weather.main.temp.rounded())
-        self.humidity = weather.main.humidity
-        self.windSpeed = Int(weather.wind.speed.rounded())
+        self.temp = "\(Int(weather.main.temp.rounded()))°"
+        self.humidity = "\(weather.main.humidity)%"
+        self.windSpeed = "\(Int(weather.wind.speed.rounded())) Km/h"
 
         if let windDegrees = weather.wind.deg {
             self.windDirection = "\(Int(windDegrees.rounded()))°"

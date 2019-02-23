@@ -11,29 +11,26 @@ import UIKit
 extension WeatherViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-
-    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return forecastData != nil ? self.forecastData.list.count : 0
     }
 
-    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return forecastData != nil ? 1 : 0
     }
 
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KForecastCellId, for: indexPath) as! ForecastCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KForecastCellId, for: indexPath) as! ForecastCollectionViewCellTest
         if self.forecastData != nil {
-            let listData = self.forecastData.list[indexPath.item]
-            cell.updateCellData(image: listData.icon, temp: listData.temp, date: listData.date, dayName: listData.dayName)
+            let listData = self.forecastData.list[indexPath.section]
+            cell.appendForecast(forecast: listData)
+            //cell.updateCellData(image: listData.icon, temp: listData.temp, date: listData.date, dayName: listData.dayName)
         }
         return cell
     }
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let widthPerItem: CGFloat = (self.view.frame.width - 20)
-        return CGSize(width: forecastData != nil ? widthPerItem : self.view.frame.width, height: 100)
+        return CGSize(width: forecastData != nil ? widthPerItem : self.view.frame.width, height: 130)
     }
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

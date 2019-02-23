@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainModel: NSObject {
+class MainModel: MainModelProtocol {
 
     var succeededData = true
     var msgData = ""
@@ -46,4 +46,8 @@ class MainModel: NSObject {
             responseHandler(mainData)
         }
     }
+}
+
+protocol MainModelProtocol {
+    func getWeather(id: Int, responseHandler: @escaping (_ response: MainData) -> Void, errorHandler: @escaping (_ error: Error?) -> Void)
 }

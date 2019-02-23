@@ -66,7 +66,7 @@ class CityViewController: UIViewController {
         if selectedItems.count > 0 {
             if selectedItems.count <= 5 {
                 CityModel.sharedInstance.saveSelectedCities(cities: selectedItems)
-                self.navigationController?.pushViewController(MainViewController(), animated: true)
+                self.navigationController?.pushViewController(WeatherMainViewController(), animated: true)
             } else {
                 showSelectionAlert(message: "No puedes seleccionar más de 5 ciudades")
             }

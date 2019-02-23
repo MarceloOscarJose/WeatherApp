@@ -9,9 +9,9 @@
 import UIKit
 
 class ConfigManager: NSObject {
+
     static let sharedInstance = ConfigManager()
 
-    // Config vars
     var baseURL = ""
     var apiKey = ""
 

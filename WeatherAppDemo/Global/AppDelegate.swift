@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UINavigationControllerDel
         self.mainNavigationController = UINavigationController()
 
         if let mainNavigationController = self.mainNavigationController {
-            let initialViewController = CityModel.sharedInstance.shouldSelectCities() ? CityViewController() : MainViewController()
+            let initialViewController = CityModel.sharedInstance.shouldSelectCities() ? CityViewController() : WeatherMainViewController()
             mainNavigationController.delegate = self
             mainNavigationController.setNavigationBarHidden(true, animated:false)
             mainNavigationController.pushViewController(initialViewController, animated:true)

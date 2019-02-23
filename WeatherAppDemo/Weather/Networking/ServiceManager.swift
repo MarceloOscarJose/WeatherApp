@@ -11,7 +11,6 @@ import Alamofire
 class GeneralService: NSObject {
 
     public func executeRequest(url: String, paramaters: [String: AnyObject], responseHandler: @escaping (_ response: Data) -> Void, errorHandler: @escaping (_ error: Error) -> Void) {
-
         var params = paramaters
         params["appid"] = ConfigManager.sharedInstance.apiKey as AnyObject
         params["lang"] = "es" as AnyObject
@@ -50,7 +49,6 @@ class GeneralService: NSObject {
     public func generateError(response: DefaultDataResponse) -> Error {
 
         var responseError: Error = NSError(domain: "", code: 1, userInfo: nil)
-
         if let responseData = response.response {
             responseError = NSError(domain: "", code: responseData.statusCode, userInfo: nil)
         }

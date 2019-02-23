@@ -17,7 +17,7 @@
                 <outlet property="humidityLabel" destination="5O7-aJ-3AH" id="bmk-5v-oEF"/>
                 <outlet property="tempLabel" destination="P3f-UE-4zc" id="gNc-2f-AB2"/>
                 <outlet property="weatherIcon" destination="K2O-hz-Izr" id="t2L-yZ-fdI"/>
-                <outlet property="weatherInfoStackView" destination="fAN-x1-kXV" id="fxe-7R-lHE"/>
+                <outlet property="weatherInfoView" destination="fAN-x1-kXV" id="ZnH-cv-Jaf"/>
                 <outlet property="windDirectionLabel" destination="DXT-sq-e7k" id="u7K-vy-Nmy"/>
                 <outlet property="windSpeedLabel" destination="xou-de-GLP" id="ohT-fm-IeR"/>
             </connections>
@@ -46,7 +46,7 @@
                                 <constraint firstAttribute="width" constant="80" id="otn-Sd-nqm"/>
                             </constraints>
                         </imageView>
-                        <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fAN-x1-kXV">
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fAN-x1-kXV">
                             <rect key="frame" x="27.5" y="597" width="300" height="50"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pQ7-fD-cFO">

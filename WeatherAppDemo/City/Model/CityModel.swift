@@ -11,8 +11,6 @@ import CoreData
 
 class CityModel: NSObject {
 
-    typealias completionBlock = (_ response: [CityData]) -> Void
-
     static let sharedInstance = CityModel()
 
     let userDefaults = UserDefaults.standard

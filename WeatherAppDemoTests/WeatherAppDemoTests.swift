@@ -20,8 +20,9 @@ class WeatherAppDemoTests: XCTestCase {
     }
 
     func testMainModel() {
-        let mainModel = MainModel()
+        let mainModel = MainModelMock()
         var mainDataMock: MainData!
+
         let expectation = self.expectation(description: "Scaling")
 
         mainModel.getWeather(id: 7284819, responseHandler: { (mainData) in
@@ -32,7 +33,10 @@ class WeatherAppDemoTests: XCTestCase {
         }
 
         waitForExpectations(timeout: 10, handler: nil)
-        XCTAssert(mainDataMock.weather.humidity == 40)
+        XCTAssert(mainDataMock.weather.humidity == "40%")
+        XCTAssert(mainDataMock.weather.temp == "36°")
+        XCTAssert(mainDataMock.weather.windSpeed == "10 Km/h")
+        XCTAssert(mainDataMock.weather.windDirection == "240°")
     }
 
     func testPerformanceExample() {
@@ -41,5 +45,4 @@ class WeatherAppDemoTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-
 }
