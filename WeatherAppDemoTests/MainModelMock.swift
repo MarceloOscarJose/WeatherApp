@@ -8,6 +8,10 @@
 
 @testable import WeatherAppDemo
 
+protocol WeatherService {
+    func getWeather(id: Int, responseHandler: @escaping (_ response: Weather) -> Void, errorHandler: @escaping (_ error: Error?) -> Void)
+}
+
 extension WeatherService {
 
     func getWeather(id: Int, responseHandler: @escaping (_ response: Weather) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
