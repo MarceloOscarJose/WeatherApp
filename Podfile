@@ -9,7 +9,7 @@ target 'WeatherAppDemo' do
   pod 'PureLayout', '3.1.4'
 
   # My own Pods ;)
-  pod 'PXStickyHeaderCollectionView', '0.1.2'
+  pod 'PXStickyHeaderCollectionView', '1.1.1'
 
   target 'WeatherAppDemoTests' do
     inherit! :search_paths

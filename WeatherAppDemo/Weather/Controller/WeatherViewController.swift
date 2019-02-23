@@ -51,7 +51,7 @@ class WeatherViewController: UIViewController {
         self.view.backgroundColor = UIColor.primaryColor
         containerView = PXStickyHeaderCollectionView(initHeaderHeight: initialHeaderHeight, minHeaderHeight: minHeaderHeight, headerView: containerHeader)
         self.view.addSubview(containerView)
-        containerView.autoPinEdgesToSuperviewSafeArea(with: UIEdgeInsets(top: 0, left: 0, bottom: 70, right: 0))
+        containerView.autoPinEdgesToSuperviewSafeArea(with: UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0))
 
         let forecastCellNib = UINib(nibName: KForecastClass, bundle: Bundle.main)
         containerView.collectionView.register(forecastCellNib, forCellWithReuseIdentifier: KForecastCellId)

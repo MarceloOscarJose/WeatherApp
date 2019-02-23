@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PureLayout
 
 class WeatherMainViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
 
@@ -49,11 +50,10 @@ class WeatherMainViewController: UIPageViewController, UIPageViewControllerDataS
         self.pageControl.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         self.view.addSubview(self.pageControl)
 
-        self.pageControl.translatesAutoresizingMaskIntoConstraints = false
-        self.pageControl.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -10).isActive = true
-        self.pageControl.widthAnchor.constraint(equalTo: self.view.widthAnchor, constant: -20).isActive = true
-        self.pageControl.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        self.pageControl.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        self.pageControl.autoPinEdge(toSuperviewSafeArea: .left, withInset: 10)
+        self.pageControl.autoPinEdge(toSuperviewSafeArea: .right, withInset: 10)
+        self.pageControl.autoPinEdge(toSuperviewSafeArea: .bottom, withInset: 0)
+        self.pageControl.autoSetDimension(.height, toSize: 50)
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
