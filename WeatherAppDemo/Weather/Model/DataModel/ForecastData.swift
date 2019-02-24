@@ -17,12 +17,18 @@ class ForecastData: NSObject {
     init(forecast: Forecast) {
 
         let formatterShortDate = DateFormatter.shortDate
-        let groupedForecast = Dictionary(grouping: forecast.list) { formatterShortDate.string(from: $0.dtTxt) }
+        let groupedForecast = Dictionary(grouping: forecast.list, by: { formatterShortDate.string(from: $0.dtTxt) }).sorted {
+            if let firstData = $0.value.first, let secondData = $1.value.first {
+                return firstData.dt < secondData.dt
+            }
 
-        for forecastData in groupedForecast.values {
+            return true
+        }
+
+        for forecastData in groupedForecast {
             var forecastListdata: [ForecastDataResult] = []
 
-            for forecast in forecastData {
+            for forecast in forecastData.value {
                 forecastListdata.append(ForecastDataResult(forecast: forecast))
             }
 

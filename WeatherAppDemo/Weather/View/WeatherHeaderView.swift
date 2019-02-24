@@ -19,6 +19,7 @@ class WeatherHeaderView: UIView {
     @IBOutlet weak var windSpeedLabel: UILabel!
     @IBOutlet weak var windDirectionLabel: UILabel!
     @IBOutlet weak var weatherInfoView: UIStackView!
+    @IBOutlet weak var weatherMainDescription: UILabel!
     
     var initialHeight: CGFloat!
 
@@ -36,7 +37,7 @@ class WeatherHeaderView: UIView {
             setupControls()
         }
 
-        let topMargen = initialHeight - 100
+        let topMargen = initialHeight - 50
         let alpha = (self.frame.height - topMargen) / (initialHeight - topMargen)
         weatherInfoView.alpha = alpha
     }
@@ -48,7 +49,8 @@ class WeatherHeaderView: UIView {
     }
 
     func updateData(cityname: String, description: String, image: String, temp: String, humidity: String, windSpeed: String, windDirection: String) {
-        cityNameLabel.text = "\(cityname)\n\(description)"
+        cityNameLabel.text = cityname
+        weatherMainDescription.text = description
         weatherIcon.image = UIImage(named: image)!
         tempLabel.text = temp
         humidityLabel.text = humidity

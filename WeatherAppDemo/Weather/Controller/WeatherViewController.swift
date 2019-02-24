@@ -12,12 +12,13 @@ import PureLayout
 class WeatherViewController: UIViewController {
 
     let KForecastCellId = "ForecastCellTest"
-    let KForecastClass = "ForecastCollectionViewCellTest"
+    let KForecastClass = "ForecastCollectionViewCell"
 
     // UI Vars
+    let forecastCellHeight: CGFloat = 130.0
     let forecastCellPadding: CGFloat = 10.0
-    let initialHeaderHeight: CGFloat = 300
-    let minHeaderHeight: CGFloat = 180
+    let initialHeaderHeight: CGFloat = 230
+    let minHeaderHeight: CGFloat = 150
 
     let mainModel = MainModel()
 
@@ -51,11 +52,11 @@ class WeatherViewController: UIViewController {
         self.view.backgroundColor = UIColor.primaryColor
         containerView = PXStickyHeaderCollectionView(initHeaderHeight: initialHeaderHeight, minHeaderHeight: minHeaderHeight, headerView: containerHeader)
         self.view.addSubview(containerView)
-        containerView.autoPinEdgesToSuperviewSafeArea(with: UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0))
+        containerView.autoPinEdgesToSuperviewSafeArea(with: UIEdgeInsets(top: 0, left: 0, bottom: 70, right: 0))
 
         let forecastCellNib = UINib(nibName: KForecastClass, bundle: Bundle.main)
         containerView.collectionView.register(forecastCellNib, forCellWithReuseIdentifier: KForecastCellId)
-        containerView.collectionView.backgroundColor = UIColor.shadowColor
+        containerView.collectionView.backgroundColor = UIColor.clear
 
         containerView.delegate = self
         containerView.dataSource = self

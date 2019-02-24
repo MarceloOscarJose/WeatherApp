@@ -19,7 +19,7 @@ extension WeatherViewController: UICollectionViewDataSource, UICollectionViewDel
     }
 
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KForecastCellId, for: indexPath) as! ForecastCollectionViewCellTest
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KForecastCellId, for: indexPath) as! ForecastCollectionViewCell
         if self.forecastData != nil {
             let listData = self.forecastData.list[indexPath.section]
             cell.appendForecast(forecast: listData)
@@ -29,8 +29,8 @@ extension WeatherViewController: UICollectionViewDataSource, UICollectionViewDel
     }
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let widthPerItem: CGFloat = (self.view.frame.width - 20)
-        return CGSize(width: forecastData != nil ? widthPerItem : self.view.frame.width, height: 130)
+        let widthPerItem: CGFloat = (self.view.frame.width - (forecastCellPadding * 2))
+        return CGSize(width: forecastData != nil ? widthPerItem : self.view.frame.width, height: forecastCellHeight)
     }
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -39,12 +39,5 @@ extension WeatherViewController: UICollectionViewDataSource, UICollectionViewDel
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 8
-    }
-
-    public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        /*if indexPath.row == self.moviesData.count - 1 {
-         self.nextPage = true
-         self.getMovies()
-         }*/
     }
 }

@@ -12,9 +12,15 @@ import PureLayout
 class WeatherMainViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
 
     let cities: [Int] = CityModel.sharedInstance.getSelectedCities()
-
     var pages = [UIViewController]()
     let pageControl = UIPageControl()
+
+    let backgroundImage: UIImageView = {
+        let backgroundImage = UIImageView()
+        backgroundImage.contentMode = .scaleAspectFill
+        backgroundImage.image = UIImage(named: "background")
+        return backgroundImage
+    }()
 
     override init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: options)
@@ -39,10 +45,11 @@ class WeatherMainViewController: UIPageViewController, UIPageViewControllerDataS
     func setupControls() {
         self.dataSource = self
         self.delegate = self
-        self.view.backgroundColor = UIColor.primaryColor
+        self.view.insertSubview(backgroundImage, at: 0)
+        backgroundImage.autoPinEdgesToSuperviewEdges()
+        self.view.backgroundColor = UIColor.clear
 
         setViewControllers([pages[0]], direction: .forward, animated: true, completion: nil)
-        self.pageControl.frame = CGRect()
         self.pageControl.currentPageIndicatorTintColor = UIColor.black
         self.pageControl.pageIndicatorTintColor = UIColor.lightGray
         self.pageControl.numberOfPages = self.pages.count
@@ -52,7 +59,7 @@ class WeatherMainViewController: UIPageViewController, UIPageViewControllerDataS
 
         self.pageControl.autoPinEdge(toSuperviewSafeArea: .left, withInset: 10)
         self.pageControl.autoPinEdge(toSuperviewSafeArea: .right, withInset: 10)
-        self.pageControl.autoPinEdge(toSuperviewSafeArea: .bottom, withInset: 0)
+        self.pageControl.autoPinEdge(toSuperviewSafeArea: .bottom, withInset: 10)
         self.pageControl.autoSetDimension(.height, toSize: 50)
     }
 

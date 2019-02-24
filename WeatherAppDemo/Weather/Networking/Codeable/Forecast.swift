@@ -18,12 +18,14 @@ struct ForecastList: Codable {
     var weather: [ForecastWeather]
     var wind: ForecastWind
     var dtTxt: Date
+    var dt: Int
 
     enum CodingKeys: String, CodingKey {
         case main
         case weather
         case wind
         case dtTxt = "dt_txt"
+        case dt
     }
 }
 

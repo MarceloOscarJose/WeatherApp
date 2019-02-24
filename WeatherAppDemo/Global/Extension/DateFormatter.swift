@@ -37,4 +37,11 @@ extension DateFormatter {
         formatter.locale = Locale(identifier: "es_ES")
         return formatter
     }()
+
+    static let longHour: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "es_ES")
+        formatter.dateFormat = "HH:mm"
+        return formatter
+    }()
 }
