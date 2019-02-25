@@ -26,7 +26,6 @@ class WeatherViewController: UIViewController {
     let containerHeader: WeatherHeaderView = WeatherHeaderView()
 
     var forecastData: ForecastData!
-
     var cityId: Int = 0
 
     convenience init(cityId: Int) {
@@ -49,10 +48,13 @@ class WeatherViewController: UIViewController {
 
     func setupControls() {
 
-        self.view.backgroundColor = UIColor.primaryColor
+        self.view.backgroundColor = UIColor.clear
         containerView = PXStickyHeaderCollectionView(initHeaderHeight: initialHeaderHeight, minHeaderHeight: minHeaderHeight, headerView: containerHeader)
         self.view.addSubview(containerView)
-        containerView.autoPinEdgesToSuperviewSafeArea(with: UIEdgeInsets(top: 0, left: 0, bottom: 70, right: 0))
+        containerView.autoPinEdge(toSuperviewSafeArea: .top, withInset: 0)
+        containerView.autoPinEdge(.left, to: .left, of: self.view)
+        containerView.autoPinEdge(.right, to: .right, of: self.view)
+        containerView.autoPinEdge(toSuperviewSafeArea: .bottom, withInset: 70)
 
         let forecastCellNib = UINib(nibName: KForecastClass, bundle: Bundle.main)
         containerView.collectionView.register(forecastCellNib, forCellWithReuseIdentifier: KForecastCellId)

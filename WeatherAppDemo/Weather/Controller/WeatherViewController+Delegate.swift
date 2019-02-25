@@ -34,7 +34,7 @@ extension WeatherViewController: UICollectionViewDataSource, UICollectionViewDel
     }
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: forecastCellPadding, left: forecastCellPadding, bottom: 0, right: forecastCellPadding)
+        return UIEdgeInsets(top: 0, left: forecastCellPadding, bottom: (self.forecastData.list.count - 1) == section ? 0 : forecastCellPadding, right: forecastCellPadding)
     }
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

@@ -51,10 +51,10 @@ class WeatherMainViewController: UIPageViewController, UIPageViewControllerDataS
 
         setViewControllers([pages[0]], direction: .forward, animated: true, completion: nil)
         self.pageControl.currentPageIndicatorTintColor = UIColor.black
-        self.pageControl.pageIndicatorTintColor = UIColor.lightGray
+        self.pageControl.pageIndicatorTintColor = UIColor.white
         self.pageControl.numberOfPages = self.pages.count
         self.pageControl.currentPage = 0
-        self.pageControl.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        self.pageControl.backgroundColor = UIColor.white.withAlphaComponent(0.3)
         self.view.addSubview(self.pageControl)
 
         self.pageControl.autoPinEdge(toSuperviewSafeArea: .left, withInset: 10)
