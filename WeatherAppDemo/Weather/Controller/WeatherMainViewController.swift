@@ -105,7 +105,6 @@ class WeatherMainViewController: UIPageViewController, UIPageViewControllerDataS
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         if let viewControllerIndex = self.pages.index(of: viewController) {
             if viewControllerIndex != 0 {
-                self.weatherDelegate = viewController as! WeatherViewController
                 return self.pages[viewControllerIndex - 1]
             }
         }
@@ -115,7 +114,6 @@ class WeatherMainViewController: UIPageViewController, UIPageViewControllerDataS
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         if let viewControllerIndex = self.pages.index(of: viewController) {
             if viewControllerIndex < self.pages.count - 1 {
-                self.weatherDelegate = viewController as! WeatherViewController
                 return self.pages[viewControllerIndex + 1]
             }
         }
@@ -126,6 +124,7 @@ class WeatherMainViewController: UIPageViewController, UIPageViewControllerDataS
         if let viewControllers = pageViewController.viewControllers {
             if let viewControllerIndex = self.pages.index(of: viewControllers[0]) {
                 self.pageControl.currentPage = viewControllerIndex
+                self.weatherDelegate = viewControllers[0] as! WeatherViewController
             }
         }
     }
