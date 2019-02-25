@@ -11,7 +11,7 @@ import PureLayout
 
 class WeatherViewController: UIViewController, WeatherMainViewControllerProtocol {
 
-    let KForecastCellId = "ForecastCellTest"
+    let KForecastCellId = "ForecastCell"
     let KForecastClass = "ForecastCollectionViewCell"
 
     // UI Vars

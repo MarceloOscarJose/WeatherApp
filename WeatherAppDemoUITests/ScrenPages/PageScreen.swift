@@ -101,6 +101,9 @@ public extension BaseScreen {
     func firstSecureTextField() -> XCUIElement {
         return XCUIApplication().secureTextFields.firstMatch
     }
+    func collectionView() -> XCUIElement {
+        return XCUIApplication().collectionViews.firstMatch
+    }
 }
 
 // MARK: UI Controls
@@ -110,10 +113,16 @@ public extension BaseScreen {
         let elementQuery = scrollViewsQuery.otherElements.firstMatch
         elementQuery.swipeUp()
     }
-    
+
     func swipeDown() {
         let scrollViewsQuery = XCUIApplication().scrollViews
         let elementQuery = scrollViewsQuery.otherElements.firstMatch
         elementQuery.swipeDown()
+    }
+
+    func swipeRight() {
+        let scrollViewsQuery = XCUIApplication().scrollViews
+        let elementQuery = scrollViewsQuery.otherElements.firstMatch
+        elementQuery.swipeRight()
     }
 }

@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UINavigationControllerDel
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
+        resetStateIfUITesting()
         self.mainNavigationController = UINavigationController()
 
         if let mainNavigationController = self.mainNavigationController {
@@ -33,6 +34,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UINavigationControllerDel
         }
 
         return true
+    }
+
+    private func resetStateIfUITesting() {
+        if ProcessInfo.processInfo.arguments.contains("UI-Testing") {
+            UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

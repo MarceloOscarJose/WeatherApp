@@ -57,6 +57,10 @@ class CityModel: NSObject {
         userDefaults.setValue(cities, forKey: selectedCitiesKey)
     }
 
+    public func removeSelectedCities() {
+        userDefaults.removeObject(forKey: selectedCitiesKey)
+    }
+
     public func shouldSelectCities() -> Bool {
         if let cities = userDefaults.array(forKey: selectedCitiesKey), cities.count > 0 {
             return false

@@ -18,7 +18,9 @@ target 'WeatherAppDemo' do
 
   target 'WeatherAppDemoUITests' do
     inherit! :search_paths
-    # Pods for testing
+    pod 'Alamofire', '~> 4.8.1'
+    pod 'PureLayout', '3.1.4'
+    pod 'PXStickyHeaderCollectionView', '1.1.1'
   end
 
 end
