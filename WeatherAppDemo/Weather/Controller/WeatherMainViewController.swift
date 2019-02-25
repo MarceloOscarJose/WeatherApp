@@ -13,8 +13,26 @@ class WeatherMainViewController: UIPageViewController, UIPageViewControllerDataS
 
     let cities: [Int] = CityModel.sharedInstance.getSelectedCities()
     var pages = [UIViewController]()
-    let pageControl = UIPageControl()
+    var weatherDelegate: WeatherMainViewControllerProtocol?
 
+    let pageControl: UIPageControl = {
+        let pageControl = UIPageControl()
+        pageControl.currentPageIndicatorTintColor = UIColor.black
+        pageControl.pageIndicatorTintColor = UIColor.white
+        pageControl.currentPage = 0
+        pageControl.backgroundColor = UIColor.white.withAlphaComponent(0.3)
+        return pageControl
+    }()
+    let cityButton: UIButton = {
+        let cityButton = UIButton()
+        cityButton.setImage(UIImage(named: "city"), for: .normal)
+        return cityButton
+    }()
+    let reloadButton: UIButton = {
+        let reloadButton = UIButton()
+        reloadButton.setImage(UIImage(named: "reload"), for: .normal)
+        return reloadButton
+    }()
     let backgroundImage: UIImageView = {
         let backgroundImage = UIImageView()
         backgroundImage.contentMode = .scaleAspectFill
@@ -49,23 +67,45 @@ class WeatherMainViewController: UIPageViewController, UIPageViewControllerDataS
         backgroundImage.autoPinEdgesToSuperviewEdges()
         self.view.backgroundColor = UIColor.clear
 
+        self.weatherDelegate = pages[0] as? WeatherViewController
+
         setViewControllers([pages[0]], direction: .forward, animated: true, completion: nil)
-        self.pageControl.currentPageIndicatorTintColor = UIColor.black
-        self.pageControl.pageIndicatorTintColor = UIColor.white
         self.pageControl.numberOfPages = self.pages.count
-        self.pageControl.currentPage = 0
-        self.pageControl.backgroundColor = UIColor.white.withAlphaComponent(0.3)
         self.view.addSubview(self.pageControl)
 
         self.pageControl.autoPinEdge(toSuperviewSafeArea: .left, withInset: 10)
         self.pageControl.autoPinEdge(toSuperviewSafeArea: .right, withInset: 10)
         self.pageControl.autoPinEdge(toSuperviewSafeArea: .bottom, withInset: 10)
         self.pageControl.autoSetDimension(.height, toSize: 50)
+
+        pageControl.addSubview(cityButton)
+        pageControl.addSubview(reloadButton)
+
+        cityButton.autoAlignAxis(.horizontal, toSameAxisOf: pageControl)
+        cityButton.autoPinEdge(.right, to: .right, of: pageControl, withOffset: -15)
+        cityButton.autoSetDimensions(to: CGSize(width: 40, height: 40))
+        cityButton.addTarget(self, action: #selector(navigateToCityScreen), for: .touchUpInside)
+
+        reloadButton.autoAlignAxis(.horizontal, toSameAxisOf: pageControl)
+        reloadButton.autoPinEdge(.left, to: .left, of: pageControl, withOffset: 15)
+        reloadButton.autoSetDimensions(to: CGSize(width: 30, height: 30))
+        reloadButton.addTarget(self, action: #selector(reloadMainScreen), for: .touchUpInside)
+    }
+
+    @objc func navigateToCityScreen() {
+        self.navigationController?.pushViewController(CityViewController(), animated: true)
+    }
+
+    @objc func reloadMainScreen() {
+        if let delegate = self.weatherDelegate {
+            delegate.reloadWeather()
+        }
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         if let viewControllerIndex = self.pages.index(of: viewController) {
             if viewControllerIndex != 0 {
+                self.weatherDelegate = viewController as! WeatherViewController
                 return self.pages[viewControllerIndex - 1]
             }
         }
@@ -75,6 +115,7 @@ class WeatherMainViewController: UIPageViewController, UIPageViewControllerDataS
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         if let viewControllerIndex = self.pages.index(of: viewController) {
             if viewControllerIndex < self.pages.count - 1 {
+                self.weatherDelegate = viewController as! WeatherViewController
                 return self.pages[viewControllerIndex + 1]
             }
         }
@@ -88,4 +129,8 @@ class WeatherMainViewController: UIPageViewController, UIPageViewControllerDataS
             }
         }
     }
+}
+
+protocol WeatherMainViewControllerProtocol {
+    func reloadWeather()
 }

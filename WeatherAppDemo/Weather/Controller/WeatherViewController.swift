@@ -9,7 +9,7 @@
 import PXStickyHeaderCollectionView
 import PureLayout
 
-class WeatherViewController: UIViewController {
+class WeatherViewController: UIViewController, WeatherMainViewControllerProtocol {
 
     let KForecastCellId = "ForecastCellTest"
     let KForecastClass = "ForecastCollectionViewCell"
@@ -47,7 +47,6 @@ class WeatherViewController: UIViewController {
     }
 
     func setupControls() {
-
         self.view.backgroundColor = UIColor.clear
         containerView = PXStickyHeaderCollectionView(initHeaderHeight: initialHeaderHeight, minHeaderHeight: minHeaderHeight, headerView: containerHeader)
         self.view.addSubview(containerView)
@@ -65,7 +64,6 @@ class WeatherViewController: UIViewController {
     }
 
     func getWeatherData() {
-
         mainModel.getWeather(id: cityId, responseHandler: { (mainData) in
             self.containerHeader.updateData(cityname: mainData.weather.name, description: mainData.weather.mainDescription, image: mainData.weather.icon, temp: mainData.weather.temp, humidity: mainData.weather.humidity, windSpeed: mainData.weather.windSpeed, windDirection: mainData.weather.windDirection)
             self.forecastData = mainData.forecast
@@ -73,5 +71,11 @@ class WeatherViewController: UIViewController {
         }) { (error) in
             print(error as Any)
         }
+    }
+
+    func reloadWeather() {
+        self.forecastData = nil
+        containerView.collectionView.reloadData()
+        getWeatherData()
     }
 }
