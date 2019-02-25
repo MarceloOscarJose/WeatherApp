@@ -33,10 +33,19 @@ class WeatherAppDemoTests: XCTestCase {
         }
 
         waitForExpectations(timeout: 10, handler: nil)
+
+        // Wheater
+        XCTAssert(mainDataMock.weather.mainDescription == "Soleado")
         XCTAssert(mainDataMock.weather.humidity == "40%")
         XCTAssert(mainDataMock.weather.temp == "36°")
         XCTAssert(mainDataMock.weather.windSpeed == "10 Km/h")
         XCTAssert(mainDataMock.weather.windDirection == "240°")
+
+        // Forecast
+        XCTAssert(mainDataMock.forecast.list.first?.first?.icon == "10d")
+        XCTAssert(mainDataMock.forecast.list.first?.first?.dayName == "Domingo")
+        XCTAssert(mainDataMock.forecast.list.first?.first?.date == "Febrero 24, 2019")
+        XCTAssert(mainDataMock.forecast.list.first?.first?.temp == "10°")
     }
 
     func testPerformanceExample() {

@@ -50,15 +50,7 @@ class CityViewController: UIViewController {
 
     func showSelectionAlert(message: String) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-            switch action.style {
-            case .default:
-                print("default")
-            case .cancel:
-                print("cancel")
-            case .destructive:
-                print("destructive")
-            }}))
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
 
@@ -71,7 +63,7 @@ class CityViewController: UIViewController {
                 showSelectionAlert(message: "No puedes seleccionar más de 5 ciudades")
             }
         } else {
-            showSelectionAlert(message: "Por favor selecciones una ciudad")
+            showSelectionAlert(message: "Por favor selecciona una ciudad")
         }
     }
 

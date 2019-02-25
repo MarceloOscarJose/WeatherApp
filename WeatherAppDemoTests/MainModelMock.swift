@@ -27,9 +27,9 @@ class MainModelMock: MainModelProtocol {
 
     func createForecastData() -> ForecastData {
         let forecastMainMock = ForecastMain(temp: 10, tempMin: 10, tempMax: 10, pressure: 1000, humidity: 40, tempKf: 10)
-        let forecastWeatherMock = ForecastWeather(id: 1, main: "Soleado", description: "Soleado", icon: "10d")
+        let forecastWeatherMock = ForecastWeather(id: 1, main: "soleado", description: "soleado", icon: "10d")
         let forecastWindMock = ForecastWind(speed: 10, deg: 240)
-        let forecastListMock = ForecastList(main: forecastMainMock, weather: [forecastWeatherMock], wind: forecastWindMock, dtTxt: Date())
+        let forecastListMock = ForecastList(main: forecastMainMock, weather: [forecastWeatherMock], wind: forecastWindMock, dtTxt: Date(), dt: 15123)
         let forecastMock = Forecast(cnt: 1, list: [forecastListMock])
         let forecastData = ForecastData(forecast: forecastMock)
 

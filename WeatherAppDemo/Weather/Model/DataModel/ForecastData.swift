@@ -27,7 +27,6 @@ class ForecastData: NSObject {
 
         for forecastData in groupedForecast {
             var forecastListdata: [ForecastDataResult] = []
-
             for forecast in forecastData.value {
                 forecastListdata.append(ForecastDataResult(forecast: forecast))
             }
@@ -45,7 +44,7 @@ class ForecastDataResult: NSObject {
     var temp: String
     var humidity: String
     var windSpeed: String
-    var windDirection: String
+    var windDirection: String?
     var date: String
     var dayName: String
     var hour: String
@@ -57,7 +56,12 @@ class ForecastDataResult: NSObject {
         self.temp = "\(Int(forecast.main.temp.rounded()))°"
         self.humidity = "\(forecast.main.humidity)%"
         self.windSpeed = "\(Int(forecast.wind.speed.rounded())) Km/h"
-        self.windDirection = "N"
+
+        if let windDegrees = forecast.wind.deg {
+            self.windDirection = "\(Int(windDegrees.rounded()))°"
+        } else {
+            self.windDirection = "N/A"
+        }
 
         self.date = DateFormatter.longDate.string(from: forecast.dtTxt).capitalizedFirstLetter()
         self.dayName = DateFormatter.dayName.string(from: forecast.dtTxt).capitalizedFirstLetter()

@@ -56,5 +56,5 @@ struct ForecastWeather: Codable {
 
 struct ForecastWind: Codable {
     var speed: Double
-    var deg: Double
+    var deg: Double?
 }

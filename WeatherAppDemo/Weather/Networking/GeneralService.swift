@@ -1,5 +1,5 @@
 //
-//  ServiceManager.swift
+//  GeneralService.swift
 //  WeatherAppDemo
 //
 //  Created by Marcelo Oscar José on 2/22/19.

@@ -20,12 +20,11 @@
 		9C3BFAFB221AC14D00961748 /* WeatherAppDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3BFAFA221AC14D00961748 /* WeatherAppDemoUITests.swift */; };
 		9C3BFB09221AC2FF00961748 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9C3BFB08221AC2FF00961748 /* Config.plist */; };
 		9C3BFB12221AC47400961748 /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3BFB0C221AC47400961748 /* ConfigManager.swift */; };
-		9C3BFB13221AC47400961748 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3BFB0E221AC47400961748 /* UIColor.swift */; };
 		9C3BFB14221AC47400961748 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3BFB0F221AC47400961748 /* String.swift */; };
 		9C3BFB15221AC47400961748 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3BFB10221AC47400961748 /* Formatter.swift */; };
 		9C3BFB19221AC6CF00961748 /* PageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3BFB18221AC6CF00961748 /* PageScreen.swift */; };
 		9C3BFB1D221AC7AF00961748 /* ForecastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3BFB1B221AC7AF00961748 /* ForecastService.swift */; };
-		9C3BFB1E221AC7AF00961748 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3BFB1C221AC7AF00961748 /* ServiceManager.swift */; };
+		9C3BFB1E221AC7AF00961748 /* GeneralService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3BFB1C221AC7AF00961748 /* GeneralService.swift */; };
 		9C3BFB21221ACBE700961748 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3BFB20221ACBE700961748 /* Forecast.swift */; };
 		9C3BFB24221ADB5500961748 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3BFB23221ADB5500961748 /* DateFormatter.swift */; };
 		9C3BFB26221B192700961748 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3BFB25221B192700961748 /* WeatherService.swift */; };
@@ -91,12 +90,11 @@
 		9C3BFAFC221AC14D00961748 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C3BFB08221AC2FF00961748 /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		9C3BFB0C221AC47400961748 /* ConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
-		9C3BFB0E221AC47400961748 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		9C3BFB0F221AC47400961748 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		9C3BFB10221AC47400961748 /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		9C3BFB18221AC6CF00961748 /* PageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageScreen.swift; sourceTree = "<group>"; };
 		9C3BFB1B221AC7AF00961748 /* ForecastService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastService.swift; sourceTree = "<group>"; };
-		9C3BFB1C221AC7AF00961748 /* ServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		9C3BFB1C221AC7AF00961748 /* GeneralService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralService.swift; sourceTree = "<group>"; };
 		9C3BFB20221ACBE700961748 /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		9C3BFB23221ADB5500961748 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		9C3BFB25221B192700961748 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
@@ -244,7 +242,6 @@
 		9C3BFB0D221AC47400961748 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				9C3BFB0E221AC47400961748 /* UIColor.swift */,
 				9C3BFB0F221AC47400961748 /* String.swift */,
 				9C3BFB10221AC47400961748 /* Formatter.swift */,
 				9C3BFB23221ADB5500961748 /* DateFormatter.swift */,
@@ -268,7 +265,7 @@
 				9C3BFB1F221ACBE700961748 /* Codeable */,
 				9C3BFB1B221AC7AF00961748 /* ForecastService.swift */,
 				9C3BFB25221B192700961748 /* WeatherService.swift */,
-				9C3BFB1C221AC7AF00961748 /* ServiceManager.swift */,
+				9C3BFB1C221AC7AF00961748 /* GeneralService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -658,8 +655,7 @@
 				9C3BFB1D221AC7AF00961748 /* ForecastService.swift in Sources */,
 				9C9BF902221E697A005B2640 /* CoreDataManager.swift in Sources */,
 				9C3BFB12221AC47400961748 /* ConfigManager.swift in Sources */,
-				9C3BFB13221AC47400961748 /* UIColor.swift in Sources */,
-				9C3BFB1E221AC7AF00961748 /* ServiceManager.swift in Sources */,
+				9C3BFB1E221AC7AF00961748 /* GeneralService.swift in Sources */,
 				9C3BFB26221B192700961748 /* WeatherService.swift in Sources */,
 				9C6D6676221C4CA300A98A05 /* WeatherViewController.swift in Sources */,
 			);
