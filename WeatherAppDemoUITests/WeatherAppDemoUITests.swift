@@ -22,15 +22,23 @@ class WeatherAppDemoUITests: XCTestCase {
     }
 
     func testCitySelection() {
-        _ = CityScreen().selectCities([0 ,1 , 2, 3])
+        _ = CityScreen()
+            .selectCities([0 ,1 , 2, 3])
             .continueToMainScreen()
             .swipeToNextPage()
             .swipeToNextPage()
             .swipeToNextPage()
     }
 
-    func testCitySelectionWrong() {
-        _ = CityScreen().selectCities([0 ,1 , 2, 3, 4, 5 , 6])
+    func testCityNoSelection() {
+        _ = CityScreen()
+            .continueWithError()
+            .tapOkError()
+    }
+
+    func testCityMoreSelection() {
+        _ = CityScreen()
+            .selectCities([0 ,1 , 2, 3, 4, 5, 6])
             .continueWithError()
             .tapOkError()
     }
