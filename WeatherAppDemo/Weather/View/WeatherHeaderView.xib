@@ -59,7 +59,8 @@
                                                 <constraint firstAttribute="height" constant="30" id="4mM-7E-Elm"/>
                                                 <constraint firstAttribute="width" constant="100" id="dGr-4s-Ft1"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -79,7 +80,8 @@
                                                 <constraint firstAttribute="height" constant="30" id="5S2-w2-TKv"/>
                                                 <constraint firstAttribute="width" constant="100" id="z7f-Qe-1xQ"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -99,7 +101,8 @@
                                                 <constraint firstAttribute="width" constant="100" id="Isu-CB-vM4"/>
                                                 <constraint firstAttribute="height" constant="30" id="tMG-d2-dgk"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
