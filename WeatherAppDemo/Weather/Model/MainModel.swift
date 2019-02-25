@@ -11,7 +11,6 @@ import UIKit
 class MainModel: MainModelProtocol {
 
     var succeededData = true
-    var msgData = ""
 
     let weatherService = WeatherService()
     let forecastService = ForecastService()
