@@ -18,41 +18,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background1" translatesAutoresizingMaskIntoConstraints="NO" id="vzT-4G-Gbo">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="vzT-4G-Gbo">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tjl-H6-ICZ">
-                                <rect key="frame" x="10" y="20" width="355" height="637"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marcelo Oscar José - 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYp-2K-XiA">
-                                        <rect key="frame" x="8" y="614" width="153" height="15"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WeatherApp Demo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gE-JO-qg2">
-                                        <rect key="frame" x="80.5" y="254" width="194" height="29"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="tYp-2K-XiA" firstAttribute="leading" secondItem="Tjl-H6-ICZ" secondAttribute="leading" constant="8" id="hyL-os-eJQ"/>
-                                    <constraint firstItem="1gE-JO-qg2" firstAttribute="centerY" secondItem="Tjl-H6-ICZ" secondAttribute="centerY" constant="-50" id="nKP-MQ-VVL"/>
-                                    <constraint firstAttribute="bottom" secondItem="tYp-2K-XiA" secondAttribute="bottom" constant="8" id="sG9-Mj-dyO"/>
-                                    <constraint firstItem="1gE-JO-qg2" firstAttribute="centerX" secondItem="Tjl-H6-ICZ" secondAttribute="centerX" id="uFE-YN-nXj"/>
-                                </constraints>
-                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WeatherApp Demo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gE-JO-qg2">
+                                <rect key="frame" x="90.5" y="269" width="194" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marcelo Oscar José - 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYp-2K-XiA">
+                                <rect key="frame" x="111" y="642" width="153" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="tYp-2K-XiA" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="4Cg-Zl-x20"/>
                             <constraint firstItem="vzT-4G-Gbo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="828-lZ-D14"/>
-                            <constraint firstItem="Tjl-H6-ICZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="GD1-c0-EA8"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Tjl-H6-ICZ" secondAttribute="trailing" constant="10" id="GWX-js-T35"/>
-                            <constraint firstItem="Tjl-H6-ICZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="aSD-Ab-N3x"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tYp-2K-XiA" secondAttribute="bottom" constant="10" id="CZj-jP-Af9"/>
+                            <constraint firstItem="1gE-JO-qg2" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-50" id="H7o-Pg-mll"/>
+                            <constraint firstItem="1gE-JO-qg2" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="L9n-Qd-PlH"/>
                             <constraint firstItem="vzT-4G-Gbo" firstAttribute="bottom" secondItem="Ze5-6b-2t3" secondAttribute="bottom" id="iIX-aE-db8"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Tjl-H6-ICZ" secondAttribute="bottom" constant="10" id="khQ-3m-8Es"/>
                             <constraint firstItem="vzT-4G-Gbo" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="pvF-CB-jBt"/>
                             <constraint firstItem="vzT-4G-Gbo" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="vcR-59-B1L"/>
                         </constraints>
@@ -65,6 +53,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="background1" width="345.60000610351562" height="614.4000244140625"/>
+        <image name="background" width="345.60000610351562" height="614.4000244140625"/>
     </resources>
 </document>
