@@ -22,8 +22,14 @@ extension WeatherViewController: UICollectionViewDataSource, UICollectionViewDel
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KForecastCellId, for: indexPath) as! ForecastCollectionViewCell
         if self.forecastData != nil {
             let listData = self.forecastData.list[indexPath.section]
-            cell.appendForecast(forecast: listData)
-            //cell.updateCellData(image: listData.icon, temp: listData.temp, date: listData.date, dayName: listData.dayName)
+
+            var dataObject: [(icon: String, temp: String, date: String, hour: String, dayName: String)] = []
+
+            for data in listData {
+                dataObject.append((icon: data.icon, temp: data.temp, date: data.date, hour: data.hour, dayName: data.dayName))
+            }
+
+            cell.updateCellData(data: dataObject)
         }
         return cell
     }

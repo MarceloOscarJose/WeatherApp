@@ -17,12 +17,12 @@ class ForecastCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
     }
 
-    func appendForecast(forecast: [ForecastDataResult]) {
+    func updateCellData(data: [(icon: String, temp: String, date: String, hour: String, dayName: String)]) {
         if forecastStackView.subviews.count == 0 {
-            for hourForecast in forecast {
+            for hourForecast in data {
 
                 forecastDayName.text = "\(hourForecast.dayName) - \(hourForecast.date)"
-
+                
                 let hourForecastStackView: UIStackView = {
                     let hourForecastStackView = UIStackView()
                     hourForecastStackView.axis = .vertical
@@ -51,12 +51,16 @@ class ForecastCollectionViewCell: UICollectionViewCell {
                     hourForecastTemp.font = UIFont.systemFont(ofSize: 13, weight: .light)
                     return hourForecastTemp
                 }()
-
+                
                 forecastStackView.addArrangedSubview(hourForecastStackView)
                 hourForecastStackView.addArrangedSubview(hourForecastDate)
                 hourForecastStackView.addArrangedSubview(hourForecastImageView)
                 hourForecastStackView.addArrangedSubview(hourForecastTemp)
             }
         }
+    }
+
+    func appendForecast(forecast: [ForecastDataResult]) {
+        
     }
 }
