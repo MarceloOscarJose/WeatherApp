@@ -22,7 +22,7 @@ class ForecastCollectionViewCell: UICollectionViewCell {
             for hourForecast in data {
 
                 forecastDayName.text = "\(hourForecast.dayName) - \(hourForecast.date)"
-                
+
                 let hourForecastStackView: UIStackView = {
                     let hourForecastStackView = UIStackView()
                     hourForecastStackView.axis = .vertical
@@ -51,16 +51,12 @@ class ForecastCollectionViewCell: UICollectionViewCell {
                     hourForecastTemp.font = UIFont.systemFont(ofSize: 13, weight: .light)
                     return hourForecastTemp
                 }()
-                
+
                 forecastStackView.addArrangedSubview(hourForecastStackView)
                 hourForecastStackView.addArrangedSubview(hourForecastDate)
                 hourForecastStackView.addArrangedSubview(hourForecastImageView)
                 hourForecastStackView.addArrangedSubview(hourForecastTemp)
             }
         }
-    }
-
-    func appendForecast(forecast: [ForecastDataResult]) {
-        
     }
 }
