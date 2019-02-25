@@ -104,6 +104,9 @@ public extension BaseScreen {
     func collectionView() -> XCUIElement {
         return XCUIApplication().collectionViews.firstMatch
     }
+    func alertButton(_ text: String) -> XCUIElement {
+        return XCUIApplication().alerts.buttons[text].firstMatch
+    }
 }
 
 // MARK: UI Controls

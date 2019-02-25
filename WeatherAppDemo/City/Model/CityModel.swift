@@ -53,8 +53,13 @@ class CityModel: NSObject {
         return userDefaults.array(forKey: selectedCitiesKey) as! [Int]
     }
 
-    public func saveSelectedCities(cities: [Int]) {
+    public func saveSelectedCities(cities: [Int]) -> Bool {
+        if cities.count > 5 || cities.count == 0 {
+            return false
+        }
+
         userDefaults.setValue(cities, forKey: selectedCitiesKey)
+        return true
     }
 
     public func removeSelectedCities() {

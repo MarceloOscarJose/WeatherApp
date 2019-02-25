@@ -11,6 +11,7 @@ import Foundation
 class CityScreen: BaseScreen {
 
     private lazy var nextButton = button("Siguiente")
+    private lazy var okButton = alertButton("Ok")
 
     override open func waitForElements() {
         waitFor(element: nextButton)
@@ -27,5 +28,15 @@ class CityScreen: BaseScreen {
     func continueToMainScreen() -> MainScreen {
         nextButton.tap()
         return MainScreen()
+    }
+
+    func continueWithError() -> CityScreen {
+        nextButton.tap()
+        return self
+    }
+
+    func tapOkError() -> CityScreen {
+        okButton.tap()
+        return self
     }
 }

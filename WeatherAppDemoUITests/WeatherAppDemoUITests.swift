@@ -28,4 +28,10 @@ class WeatherAppDemoUITests: XCTestCase {
             .swipeToNextPage()
             .swipeToNextPage()
     }
+
+    func testCitySelectionWrong() {
+        _ = CityScreen().selectCities([0 ,1 , 2, 3, 4, 5 , 6])
+            .continueWithError()
+            .tapOkError()
+    }
 }

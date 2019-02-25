@@ -55,15 +55,10 @@ class CityViewController: UIViewController {
     }
 
     @IBAction func saveCitySelection(_ sender: Any) {
-        if selectedItems.count > 0 {
-            if selectedItems.count <= 5 {
-                CityModel.sharedInstance.saveSelectedCities(cities: selectedItems)
-                self.navigationController?.pushViewController(WeatherMainViewController(), animated: true)
-            } else {
-                showSelectionAlert(message: "No puedes seleccionar más de 5 ciudades")
-            }
+        if CityModel.sharedInstance.saveSelectedCities(cities: selectedItems) {
+            self.navigationController?.pushViewController(WeatherMainViewController(), animated: true)
         } else {
-            showSelectionAlert(message: "Por favor selecciona una ciudad")
+            showSelectionAlert(message: "Por favor selecciona al menos una ciudad y no más de 5")
         }
     }
 
