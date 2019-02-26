@@ -25,24 +25,33 @@ class MainModel: MainModelProtocol {
         group.enter()
         weatherService.getWeather(id: id, responseHandler: { (weather) in
             self.weatherData = WeatherData(weather: weather)
+            self.succeededData = true
             group.leave()
         }) { (error) in
             self.succeededData = false
             errorHandler(error)
+            group.leave()
         }
 
         group.enter()
         forecastService.getForecast(id: id, responseHandler: { (forecast) in
             self.forecastData = ForecastData(forecast: forecast)
+            self.succeededData = true
             group.leave()
         }) { (error) in
             self.succeededData = false
             errorHandler(error)
+            group.leave()
         }
 
         group.notify(queue: .main) {
-            let mainData = MainData(weather: self.weatherData, forecast: self.forecastData)
-            responseHandler(mainData)
+            if self.succeededData {
+                let mainData = MainData(weather: self.weatherData, forecast: self.forecastData)
+                responseHandler(mainData)
+            } else {
+                let responseError: Error = NSError(domain: "", code: 1, userInfo: nil)
+                errorHandler(responseError)
+            }
         }
     }
 }

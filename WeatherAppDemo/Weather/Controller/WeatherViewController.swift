@@ -69,8 +69,25 @@ class WeatherViewController: UIViewController, WeatherMainViewControllerProtocol
             self.forecastData = mainData.forecast
             self.containerView.collectionView.reloadData()
         }) { (error) in
-            print(error as Any)
+            self.showErrorAlert()
         }
+    }
+
+    func showErrorAlert() {
+        let alert = UIAlertController(title: "Error", message: "Ups, algo salió mal. Revisa tu conexión a internet", preferredStyle: .alert)
+
+        let okAction = UIAlertAction(title: "Reintentar", style: .default) {
+            UIAlertAction in
+            self.reloadWeather()
+        }
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel) {
+            UIAlertAction in
+        }
+
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+
+        self.present(alert, animated: true, completion: nil)
     }
 
     func reloadWeather() {
