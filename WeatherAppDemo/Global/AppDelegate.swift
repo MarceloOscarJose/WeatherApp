@@ -61,6 +61,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UINavigationControllerDel
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        CoreDataManager.sharedInstance.saveContext()
     }
 }

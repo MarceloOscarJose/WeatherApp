@@ -31,21 +31,19 @@ class CityModel: NSObject {
     }
 
     private func fetchCityList(responseHandler: @escaping (_ response: [CityData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
-        CoreDataManager.sharedInstance.persistentContainer.viewContext.performAndWait {
-            do {
-                let fetchRequest: NSFetchRequest<City> = City.fetchRequest()
-                fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-                let cityData = try fetchRequest.execute()
-                
-                var cityResponse: [CityData] = []
-                for city in cityData {
-                    cityResponse.append(CityData(id: Int(city.id), name: city.name!))
-                }
-                
-                responseHandler(cityResponse)
-            } catch {
-                errorHandler(error)
-            }
+
+        let cities = PersistenceManager.sharedInstance.fetch(City.self, sortBy: "name", ascending: true)
+
+        var cityResponse: [CityData] = []
+
+        if cities.count > 0 {
+            cities.forEach ({
+                cityResponse.append(CityData(id: Int($0.id), name: $0.name!))
+            })
+
+            responseHandler(cityResponse)
+        } else {
+            errorHandler(nil)
         }
     }
 
@@ -79,8 +77,8 @@ class CityModel: NSObject {
     }
 
     public func preloadCityData(cityData: [CityData]) {
-        let backgroundContext = CoreDataManager.sharedInstance.persistentContainer.newBackgroundContext()
-        CoreDataManager.sharedInstance.persistentContainer.viewContext.automaticallyMergesChangesFromParent = true
+        let backgroundContext = PersistenceManager.sharedInstance.persistentContainer.newBackgroundContext()
+        PersistenceManager.sharedInstance.persistentContainer.viewContext.automaticallyMergesChangesFromParent = true
 
         backgroundContext.perform {
             do {
